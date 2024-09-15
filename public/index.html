@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="/js/rcode.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="user-list-container" id="user-list"></div>
+
+    <div class="three-dot-menu" id="three-dot-menu">
+        <button id="three-dot-button">•••</button>
+        <div id="menu-content" class="menu-content">
+            <button type="button" onclick="backupMessages()">Back up</button>
+            <button type="button" onclick="clearallmessage()">Clear chat</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="messages" class="messages">
+                <div class="message" draggable="true">
+                    <div class="message-inner" data-id="unique-message-id">
+                        <div class="message-text">
+                        </div>
+                    </div>
+                </div>
+                <div class="reply-container" id="reply-container">
+                    <span id="reply-text"></span>
+                    <button type="button" id="cancel-reply">Cancel</button>
+                </div>
+                <div class="image" draggable="true">
+                    <div class="reply-container">
+                        <span id="reply-image"></span>
+                        <button type="button" id="cancel-reply-image">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="send">
+        <form action="#" id="send-container">
+            <div id="reply-field" class="reply-field hidden">
+                <span id="reply-text"></span>
+                <span id="reply-image"></span>
+                <button type="button" id="cancel-reply">Cancel</button>
+            </div>
+            <div class="input-container">
+                <div class="plus-menu">
+                    <button type="button" id="plus-icon" class="btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div id="dropdown-menu" class="dropdown-menu hidden">
+                        <button type="button" class="dropdown-item" id="attach-image">Image</button>
+                        <button type="button" class="dropdown-item" id="attach-file">File</button>
+                    </div>
+                </div>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;" />
+                <input type="file" id="fileInp"  accept="file/*" style="display: none;" /> 
+                <input type="text" id="messageInp" placeholder="Type your message here...">
+                <button type="submit" class="btn">Send</button>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
